@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // Elementos de pantalla
   const pantallaInicio = document.getElementById('pantalla-inicio');
   const pantallaJuego = document.getElementById('pantalla-juego');
   const pantallaFinal = document.getElementById('pantalla-final');
@@ -11,11 +10,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const bandeja = document.getElementById('bandeja-piezas');
 
   let piezaArrastrada = null;
-  let offsetX = 0;
-  let offsetY = 0;
   let elementoClon = null;
 
-  // Eventos de botones
   btnJugar.addEventListener('click', iniciarJuego);
   btnReiniciar.addEventListener('click', iniciarJuego);
 
@@ -28,13 +24,10 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function crearYMezclarPiezas() {
-    // Limpiar tablero y bandeja
     celdas.forEach(celda => celda.innerHTML = '');
     bandeja.innerHTML = '';
 
-    // Crear array con los índices de 0 a 8
     let indices = [0, 1, 2, 3, 4, 5, 6, 7, 8];
-    // Mezclar aleatoriamente
     indices.sort(() => Math.random() - 0.5);
 
     indices.forEach(i => {
@@ -42,24 +35,22 @@ document.addEventListener('DOMContentLoaded', () => {
       pieza.classList.add('pieza');
       pieza.dataset.index = i;
 
-      // Calcular posición del recorte de la imagen (3x3 grid)
+      // Posición del recorte de imagen ajustada a 77px x 80px por celda
       const col = i % 3;
       const fila = Math.floor(i / 3);
-      pieza.style.backgroundPosition = `-${col * 93}px -${fila * 98}px`;
+      pieza.style.backgroundPosition = `-${col * 77}px -${fila * 80}px`;
 
-      // Habilitar interacción táctil / mouse
       agregarEventosArrastre(pieza);
       bandeja.appendChild(pieza);
     });
   }
 
   function agregarEventosArrastre(pieza) {
-    // Soporte unificado para touch y mouse usando PointerEvents
     pieza.addEventListener('pointerdown', (e) => {
       piezaArrastrada = pieza;
       pieza.classList.add('arrastrando');
 
-      // Clon visual para arrastrar en celulares
+      // Clon visual flotante para el arrastre táctil
       elementoClon = pieza.cloneNode(true);
       elementoClon.style.position = 'fixed';
       elementoClon.style.zIndex = '1000';
@@ -77,8 +68,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function moverClon(e) {
     if (elementoClon) {
-      elementoClon.style.left = (e.clientX - 46) + 'px';
-      elementoClon.style.top = (e.clientY - 49) + 'px';
+      // Centra el clon respecto al punto táctil/cursor
+      elementoClon.style.left = (e.clientX - 38) + 'px';
+      elementoClon.style.top = (e.clientY - 40) + 'px';
     }
   }
 
@@ -98,7 +90,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     piezaArrastrada.classList.remove('arrastrando');
 
-    // Detectar en qué celda o si cayó en el tablero
     const elementoBajoCursor = document.elementFromPoint(e.clientX, e.clientY);
     const celdaDestino = elementoBajoCursor ? elementoBajoCursor.closest('.celda') : null;
 

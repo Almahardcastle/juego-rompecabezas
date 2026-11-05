@@ -9,35 +9,36 @@
   src: url('fuente-boton.ttf');
 }
 
-/* Reset básico y fondo */
+/* Reset básico y configuración general */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
   user-select: none;
   -webkit-user-select: none;
-  touch-action: manipulation;
 }
 
 body {
-  background-color: #65ab94;
+  background-color: #2f5b4c;
   font-family: sans-serif;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start; /* Permite flujo natural para scroll */
   min-height: 100vh;
-  overflow: hidden;
+  overflow-y: auto; /* Habilita scroll si el contenido supera la pantalla */
+  overflow-x: hidden;
 }
 
-/* Estilos de Tipografías */
+/* Estilos de Tipografías con espaciado ajustable */
 .texto-titulo {
   font-family: 'FuenteTitulo', sans-serif;
   color: #ffffff;
   text-align: center;
-  margin-bottom: 25px;
-  font-size: 1.5rem;
-  line-height: 1.3;
-  padding: 0 15px;
+  margin-bottom: 20px;
+  font-size: 1.3rem;
+  line-height: 1.4;
+  padding: 0 10px;
+  letter-spacing: 2px; /* <-- Separa las letras para mejor legibilidad */
 }
 
 .texto-boton {
@@ -46,10 +47,11 @@ body {
   color: #65ab94;
   border: none;
   padding: 14px 28px;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   border-radius: 25px;
   cursor: pointer;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  letter-spacing: 1px; /* Espaciado suave también para botones */
   transition: transform 0.1s ease;
 }
 
@@ -57,34 +59,35 @@ body {
   transform: scale(0.95);
 }
 
-/* Manejo de Pantallas */
+/* Manejo de Pantallas (Permite scroll sin cortar elementos) */
 .pantalla {
   display: none;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 100%;
-  max-width: 420px;
-  height: 100vh;
-  padding: 20px;
+  max-width: 380px;
+  min-height: 100vh;
+  padding: 20px 15px;
 }
 
 .pantalla.activa {
   display: flex;
 }
 
-/* Tablero de Juego (Relación 900x940 ≈ 1:1.044) */
+/* Tablero de Juego Optimizado (Escala compacta: 240px x 250px) */
 #tablero-juego {
-  width: 290px;
-  height: 303px;
+  width: 240px;
+  height: 250px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
   gap: 3px;
   background-color: rgba(0, 0, 0, 0.15);
-  border-radius: 12px;
+  border-radius: 10px;
   padding: 3px;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
+  flex-shrink: 0;
 }
 
 .celda {
@@ -97,30 +100,30 @@ body {
 /* Bandeja inferior de piezas */
 #bandeja-piezas {
   width: 100%;
-  min-height: 120px;
+  min-height: 100px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   padding: 10px;
   background-color: rgba(0, 0, 0, 0.08);
   border-radius: 12px;
 }
 
-/* Piezas del Rompecabezas con Sombra */
+/* Piezas del Rompecabezas (Tamaño reducido: 77px x 80px) */
 .pieza {
-  width: 93px;
-  height: 98px;
+  width: 77px;
+  height: 80px;
   background-image: url('luna.png');
-  background-size: 279px 294px; /* 330% del tamaño individual */
+  background-size: 231px 240px; /* Dimensiones totales recortadas */
   border-radius: 6px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
   border: 1px solid rgba(255, 255, 255, 0.5);
   cursor: grab;
-  touch-action: none; /* Para arrastrar en celular */
+  touch-action: none; /* Evita interferencia de gestos del sistema al arrastrar */
 }
 
 .pieza.arrastrando {
-  opacity: 0.6;
+  opacity: 0.5;
 }
