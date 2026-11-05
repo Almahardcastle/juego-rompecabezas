@@ -20,6 +20,11 @@
 
 body {
   background-color: #704481;
+  background-image: linear-gradient(rgba(112, 68, 129, 0.75), rgba(112, 68, 129, 0.75)), url('textura.png');
+  background-repeat: repeat;
+  background-position: center;
+  background-size: cover;
+  
   font-family: sans-serif;
   display: flex;
   justify-content: center;
@@ -43,8 +48,8 @@ body {
 
 .texto-boton {
   font-family: 'FuenteBoton', sans-serif;
-  background-color: #ffffff;
-  color: #65ab94;
+  background-color: #e2badf;
+  color: #620d65;
   border: none;
   padding: 14px 28px;
   font-size: 2rem;
