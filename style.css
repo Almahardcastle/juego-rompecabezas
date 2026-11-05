@@ -20,7 +20,7 @@
 
 body {
   background-color: #704481;
-  background-image: linear-gradient(rgba(112, 68, 129, 0.75), rgba(112, 68, 129, 0.30)), url('textura.png');
+  background-image: linear-gradient(rgba(112, 68, 129, 0.75), rgba(112, 68, 129, 0.85)), url('textura.png');
   background-repeat: repeat;
   background-position: center;
   background-size: cover;
