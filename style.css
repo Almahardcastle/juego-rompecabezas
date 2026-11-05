@@ -19,7 +19,7 @@
 }
 
 body {
-  background-color: #2f5b4c;
+  background-color: #704481;
   font-family: sans-serif;
   display: flex;
   justify-content: center;
@@ -35,7 +35,7 @@ body {
   color: #ffffff;
   text-align: center;
   margin-bottom: 20px;
-  font-size: 1.3rem;
+  font-size: 2rem;
   line-height: 1.4;
   padding: 0 10px;
   letter-spacing: 2px; /* <-- Separa las letras para mejor legibilidad */
@@ -47,7 +47,7 @@ body {
   color: #65ab94;
   border: none;
   padding: 14px 28px;
-  font-size: 1.1rem;
+  font-size: 2rem;
   border-radius: 25px;
   cursor: pointer;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
