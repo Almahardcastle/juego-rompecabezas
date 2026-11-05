@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>Rompecabezas - Reparar la noche</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Pantalla 1: Inicio -->
+  <div id="pantalla-inicio" class="pantalla activa">
+    <h1 class="texto-titulo">Armá el rompecabezas para reparar la noche</h1>
+    <button id="btn-jugar" class="texto-boton">JUGAR</button>
+  </div>
+
+  <!-- Pantalla 2: Juego -->
+  <div id="pantalla-juego" class="pantalla">
+    <h2 class="texto-titulo">Arrastrá las piezas para formar el rompecabezas</h2>
+    
+    <!-- Tablero de 3x3 celdas -->
+    <div id="tablero-juego">
+      <div class="celda" data-index="0"></div>
+      <div class="celda" data-index="1"></div>
+      <div class="celda" data-index="2"></div>
+      <div class="celda" data-index="3"></div>
+      <div class="celda" data-index="4"></div>
+      <div class="celda" data-index="5"></div>
+      <div class="celda" data-index="6"></div>
+      <div class="celda" data-index="7"></div>
+      <div class="celda" data-index="8"></div>
+    </div>
+
+    <!-- Contenedor donde se mezclan las piezas -->
+    <div id="bandeja-piezas"></div>
+  </div>
+
+  <!-- Pantalla 3: Final -->
+  <div id="pantalla-final" class="pantalla">
+    <h1 class="texto-titulo">¡Gracias! Sanaste a la noche.</h1>
+    <button id="btn-reiniciar" class="texto-boton">JUGAR DE NUEVO</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

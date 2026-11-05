@@ -1,0 +1,126 @@
+/* Declaración de fuentes personalizadas */
+@font-face {
+  font-family: 'FuenteTitulo';
+  src: url('fuente-titulo.ttf');
+}
+
+@font-face {
+  font-family: 'FuenteBoton';
+  src: url('fuente-boton.ttf');
+}
+
+/* Reset básico y fondo */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+body {
+  background-color: #65ab94;
+  font-family: sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+/* Estilos de Tipografías */
+.texto-titulo {
+  font-family: 'FuenteTitulo', sans-serif;
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 1.5rem;
+  line-height: 1.3;
+  padding: 0 15px;
+}
+
+.texto-boton {
+  font-family: 'FuenteBoton', sans-serif;
+  background-color: #ffffff;
+  color: #65ab94;
+  border: none;
+  padding: 14px 28px;
+  font-size: 1.2rem;
+  border-radius: 25px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  transition: transform 0.1s ease;
+}
+
+.texto-boton:active {
+  transform: scale(0.95);
+}
+
+/* Manejo de Pantallas */
+.pantalla {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 420px;
+  height: 100vh;
+  padding: 20px;
+}
+
+.pantalla.activa {
+  display: flex;
+}
+
+/* Tablero de Juego (Relación 900x940 ≈ 1:1.044) */
+#tablero-juego {
+  width: 290px;
+  height: 303px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 3px;
+  background-color: rgba(0, 0, 0, 0.15);
+  border-radius: 12px;
+  padding: 3px;
+  margin-bottom: 20px;
+}
+
+.celda {
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 1px dashed rgba(255, 255, 255, 0.4);
+  border-radius: 6px;
+  position: relative;
+}
+
+/* Bandeja inferior de piezas */
+#bandeja-piezas {
+  width: 100%;
+  min-height: 120px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
+}
+
+/* Piezas del Rompecabezas con Sombra */
+.pieza {
+  width: 93px;
+  height: 98px;
+  background-image: url('luna.png');
+  background-size: 279px 294px; /* 330% del tamaño individual */
+  border-radius: 6px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  cursor: grab;
+  touch-action: none; /* Para arrastrar en celular */
+}
+
+.pieza.arrastrando {
+  opacity: 0.6;
+}
