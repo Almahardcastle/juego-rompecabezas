@@ -20,7 +20,7 @@
 
 body {
   background-color: #704481;
-  background-image: linear-gradient(rgba(112, 68, 129, 0.75), rgba(112, 68, 129, 0.85)), url('textura.png');
+  background-image: url('textura.png');
   background-repeat: repeat;
   background-position: center;
   background-size: cover;
@@ -37,13 +37,15 @@ body {
 /* Estilos de Tipografías con espaciado ajustable */
 .texto-titulo {
   font-family: 'FuenteTitulo', sans-serif;
-  color: #ffffff;
+  color: #fff6e3;
   text-align: center;
   margin-bottom: 20px;
-  font-size: 2rem;
+  font-size: 1.7rem;
   line-height: 1.4;
   padding: 0 10px;
   letter-spacing: 2px; /* <-- Separa las letras para mejor legibilidad */
+  font-weight: normal;
+  text-shadow: 2px 3px 4px rgba(0, 0, 0, 0.3);
 }
 
 .texto-boton {
@@ -62,6 +64,19 @@ body {
 
 .texto-boton:active {
   transform: scale(0.95);
+}
+
+/* Opción creando una nueva clase descriptiva */
+.subtitulo-juego {
+  font-family: 'FuenteBoton', sans-serif; /* Aplica la fuente del botón */
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 1.7rem;
+  line-height: 1.4;
+  padding: 0 10px;
+  font-weight: normal;
+  text-shadow: 2px 3px 4px rgba(0, 0, 0, 0.3);
 }
 
 /* Manejo de Pantallas (Permite scroll sin cortar elementos) */
